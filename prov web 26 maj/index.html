@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body id="body">
+  <div id="EventDiv">
+
+    <h1 id="demo"></h1>
+    <p id="time"></p>
+    <img id="pic" src="dice-1.png" style=" height: 100px; width: 100px; ">
+
+  </div>
+
+  <div class="button-container">
+    <button class="hover-effect" onclick="changebg()">Change Bg</button>
+    <!-- Knapp-element med klassen "hover-effect". När man klickar på knappen anropas funktionen "changebg()" -->
+    <button id="goodvibes" class="hover-effect" onclick="goodvibes()">Good vibes</button>
+    <!-- Knapp-element med id "goodvibes" och klassen "hover-effect". När man klickar på knappen anropas funktionen "goodvibes()" -->
+    <button class="hover-effect" onclick="time()">Time</button>
+    <!-- Knapp-element med klassen "hover-effect". När man klickar på knappen anropas funktionen "time()" -->
+    <button class="hover-effect" onclick="changeImageSource()">Change picure</button>
+    <!-- Knapp-element med klassen "hover-effect". När man klickar på knappen anropas funktionen "changeImageSource()" -->
+    <button class="hover-effect" onclick="hidepicture()">Hide picture</button>
+    <!-- Knapp-element med klassen "hover-effect". När man klickar på knappen anropas funktionen "hidepicture()" -->
+    <button class="hover-effect" onclick="showpicture()">Show Picture</button>
+    <!-- Knapp-element med klassen "hover-effect". När man klickar på knappen anropas funktionen "showpicture()" -->
+  </div>
+
+  <script>
+/// Denna funktion gömmer bilden genom att hämta elementet med id "pic" och ändrar dess stilattribut till "display: none".
+    function hidepicture() {
+      var image = document.getElementById("pic");
+      image.setAttribute=(image.style.display = "none");
+    }
+
+/// Denna funktion visar bilden genom att hämta elementet med id "pic" och ändrar dess stilattribut till "display: block".
+    function showpicture() {
+      var image = document.getElementById("pic");
+      image.setAttribute=(image.style.display = "block");
+    }
+
+/// Denna funktion visar aktuell tid genom att skapa ett nytt '<p>'-element, sätter dess textinnehåll till aktuell tid med hjälp av 'Date()' och lägger till det som ett barn till elementet med id "time".
+    function time() {
+      const header = document.getElementById("time");
+      const newHeading = document.createElement("p");
+      newHeading.textContent = Date();
+      header.appendChild(newHeading);
+
+    }
+
+/// Denna funktion lägger till en rubrik "Var den bästa versionen av dig själv!" genom att skapa ett nytt '<h1>'-element, sätter dess textinnehåll till rubriken och lägger till det som ett barn till elementet med id "demo".
+    function goodvibes() {
+      const header = document.getElementById("demo");
+      const newHeading = document.createElement("h1");
+      newHeading.textContent = "Be the best version of you!";
+      header.appendChild(newHeading);
+
+    }
+
+/// Denna funktion skapar en rubrik "Välkommen!" genom att skapa ett nytt '<h2>'-element, sätter dess textinnehåll till rubriken och lägger till det som ett barn till elementet med id "EventDiv".
+    function createheader() {
+      const header = document.getElementById("EventDiv");
+      const newHeading = document.createElement("h2");
+      newHeading.textContent = "Välkommen!";
+
+      header.appendChild(newHeading);
+
+    }
+
+/// Denna funktion ändrar bakgrundsfärgen på alla <body>-element till grönt genom att hämta alla <body>-element med 'getElementsByTagName("body")' och sedan iterera över dem och ändra deras backgroundColor till "green".
+    function changebg() {
+      const divs = document.getElementsByTagName("body");
+      for (let i = 0; i < divs.length; i++) {
+        divs[i].style.backgroundColor = "green";
+      }
+    }
+
+/// Denna funktion ändrar källan (src) för bilden med id "pic" till "dice-6.png" genom att använda 'setAttribute("src", "dice-6.png")'.
+    function changeImageSource() {
+      var image = document.getElementById("pic");
+      image.setAttribute("src", "dice-6.png");
+    }
+
+  </script>
+</body>
+
+</html>
